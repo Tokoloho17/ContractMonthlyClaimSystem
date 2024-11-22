@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Welcome to the Contract Monthly Claim System";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">Welcome to the Contract Monthly Claim System</h1>
+        <p>Streamline your claim submissions and approvals with ease!</p>
+        <hr />
+        <p>
+            @* Display a dynamic message based on user role (for example, if the user is logged in as a Lecturer) *@
+            @if (User.Identity.IsAuthenticated)
+            {
+            <p><strong>Hello, @User.Identity.Name!</strong> We're glad to have you on board.</p>
+            }
+            else
+            {
+            <p>Sign in to start submitting your claims.</p>
+            }
+        </p>
+
+        <div>
+            <h3>Features:</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Submit claims easily and track their approval status.</li>
+                <li class="list-group-item">View and manage lecturer data for HR staff.</li>
+                <li class="list-group-item">Generate invoices automatically for approved claims.</li>
+            </ul>
+        </div>
+
+        <div class="mt-4">
+            <a href="@Url.Action("Index", "Claims")" class="btn btn-primary btn-lg">Start a New Claim</a>
+        </div>
+    </div>
+</div>

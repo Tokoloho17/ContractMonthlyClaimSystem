@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ContractMonthlyClaimSystem.Models.Claim>
+
+<h1>HR Management</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer Name</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.Lecturer.Name</td>
+                <td>@claim.TotalAmount</td>
+                <td>@claim.Status</td>
+                <td>
+                    @if (claim.Status == "Approved")
+                    {
+                        <form method="post" action="@Url.Action("GenerateInvoice", "HR")">
+                            <input type="hidden" name="claimId" value="@claim.Id" />
+                            <button type="submit" class="btn btn-primary">Generate Invoice</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("HRManagement", "HR")" class="btn btn-secondary">Back</a>

@@ -1,0 +1,19 @@
+﻿@model ContractMonthlyClaimSystem.Models.Claim
+
+<h2>Create Claim</h2>
+
+<form method="post">
+    <label>Lecturer Name:</label>
+    <input type="text" name="LecturerName" required />
+
+    <label>Hours Worked:</label>
+    <input type="number" name="HoursWorked" required />
+
+    <label>Hourly Rate:</label>
+    <input type="number" name="HourlyRate" required />
+
+    <label>Document Upload:</label>
+    <input type="file" name="DocumentPath" />
+
+    <button type="submit">Submit Claim</button>
+</form>
